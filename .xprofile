@@ -1,0 +1,13 @@
+# Composer
+picom &
+# Keyboard Layout
+setxkbmap latam &
+# Wallpaper
+feh --bg-scale ~/Wallpapers/bg01.jpg &
+
+
+
+
+# nnn
+export NNN_PLUG='p:preview-tui;i:imgview;k:gpge'
+
