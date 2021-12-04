@@ -1,3 +1,5 @@
+# Configurations
+---------------------
 - cmus
 - alacritty
 - dunst
