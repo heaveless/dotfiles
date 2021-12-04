@@ -1,0 +1,5 @@
+alias ls='ls --color=auto'
+alias ~sk='cd ~/Projects/skyairline/'
+alias video='mpv'
+alias img='sxiv'
+alias pdf='zathura'

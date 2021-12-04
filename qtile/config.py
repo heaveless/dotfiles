@@ -26,17 +26,10 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
-from os import path
-import subprocess
-
-@hook.subscribe.startup_once
-def autostart():
-    subprocess.call([path.join(path.expanduser('~'), '.config', 'qtile', 'autostart.sh')])
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -59,10 +52,6 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
-
-    Key([mod], "f", lazy.window.toggle_floating()),
-    Key([mod], "s", lazy.window.toogle_fullscreen()),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -89,24 +78,20 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawncmd(),
+        desc="Spawn a command using a prompt widget"),
 
-    # capture selected
-    Key([mod, "shift"], "s", lazy.spawn("escrotum -sC")),
-
-    # Device
-    Key([mod, "shift"], "d", lazy.spawn("scrcpy --max-size 1024")),
-
-    # Menu
     Key([mod], "m", lazy.spawn("rofi -show drun")),
-
-    # Window Nav
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
-
-    # nnn
     Key([mod], "e", lazy.spawn("alacritty -e nnn -a")),
 
-    # Volume
+    Key([mod, "shift"], "s", lazy.spawn("escrotum -sC")),
+    Key([mod, "shift"], "r", lazy.spawn("escrotum -rC")),
+    
+    Key([], "F2", lazy.spawn("alacritty -e screencast -s 1920x1080 -u --output-dir=Videos")),
+
+    Key([mod, "shift"], "d", lazy.spawn("scrcpy --max-size 1024")),
+
     Key([], "XF86AudioLowerVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     )),
@@ -117,92 +102,55 @@ keys = [
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
 
-    # Brightness
     Key([], "F4", lazy.spawn("brightnessctl set +10%")),
     Key([], "F3", lazy.spawn("brightnessctl set 10%-")),
 ]
 
-groups = [Group(i) for i in [
+groups = [Group(i) for i in [ 
     "   ", "   ", "  ", "  ", "   " ,"   ", "   ", "   " ,"   ",
 ]]
 
 for i, group in enumerate(groups):
-    actual_key = str(i + 1)
+    current_key = str(i + 1)
     keys.extend([
-        # Switch to workspace N
-        Key([mod], actual_key, lazy.group[group.name].toscreen()),
-        # Send window to workspace N
-        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
+        Key([mod], current_key, lazy.group[group.name].toscreen()),
+        Key([mod, "shift"], current_key, lazy.window.togroup(group.name))
     ])
 
 layouts = [
-    # layout.Columns(border_focus_stack='#d75f5f'),
+    layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
     # layout.Bsp(),
-    layout.Matrix(),
-    layout.MonadTall(),
-    #  layout.MonadWide(),
-    layout.RatioTile(),
-    layout.Tile(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    background=["#0f101a", "#0f101a"],
-    font='UbuntuMono Nerd Font',
-    fontsize=14,
-    padding=0,
+    font='JetBrains Mono Nerd Font',
+    fontsize=12,
+    padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
-                widget.GroupBox(
-                    foreground=["#f1ffff", "#f1ffff"],
-                    background=["#0f101a", "#0f101a"],
-                    font='ubuntuMono Nerd Font',
-                    fontsize=16,
-                    margin_y=3,
-                    margin_x=0,
-                    padding_y=8,
-                    padding_x=5,
-                    borderwidth=1,
-                    active=["#f1ffff", "#f1ffff"],
-                    inactive=["#f1ffff", "#f1ffff"],
-                    rounded=False,
-                    highlight_method='block',
-                    this_current_screen_border=["#F07178", "#F07178"],
-                    this_screen_border=["#5c5c5c", "#5c5c5c"],
-                    other_current_screen_border=["#0f101a", "#0f101a"],
-                    other_screen_border=["#0f101a", "#0f101a"],
-                ),
-                widget.WindowName(
-                    foreground=["#F07178", "#F07178"],
-                    background=["#0f101a", "#0f101a"],
-                    font='ubuntuMono Nerd Font Bold',
-                    fontsize=16,
-                ),
+                widget.GroupBox(),
+                widget.WindowName(),
                 widget.Systray(),
-                widget.CurrentLayout(),
-                # widget.Net(
-                #     format='{interface}: {down} ↓↑ {up}'
-                # ),
-                widget.BatteryIcon(),
-                widget.Battery(
-                    format='{percent:1.0%}'
-                ),
-                widget.Clock(
-                    format='%Y-%m-%d %I:%M %p'
-                ),
+                widget.Clock(format='%Y-%m-%d %I:%M %p'),
+                widget.Battery(format='[ {percent:1.0%} ]'),
             ],
             24,
-            opacity=0.95,
         ),
     ),
 ]
@@ -213,12 +161,11 @@ mouse = [
          start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    # Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -234,6 +181,11 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+reconfigure_screens = True
+
+# If things like steam games want to auto-minimize themselves when losing
+# focus, should we respect this or not?
+auto_minimize = True
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -244,3 +196,4 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
