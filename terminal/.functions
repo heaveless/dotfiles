@@ -32,3 +32,15 @@ xlw(){
     then pyexcel view --in-browser --output-file-type sortable.html --sheet-index 0 $1
   fi
 }
+
+dsync(){
+ rsync -av --exclude='*/.git' ~/.config/ ~/Projects/experimentallife/dotfiles/   
+}
+
+vt(){
+  v ~/.config/terminal/
+}
+
+vv(){
+  v ~/.config/nvim/
+}
