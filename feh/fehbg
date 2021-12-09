@@ -1,0 +1,3 @@
+#!/bin/bash
+
+# feh --no-fehbg --bg-scale ./bg/01.jpg

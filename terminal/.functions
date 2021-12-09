@@ -1,0 +1,34 @@
+q(){
+  "exit"
+}
+
+rs(){
+  source ~/.bashrc && exit && $TERM
+}
+
+cps(){
+  if [ ! -z $1 ]; 
+    then zip -r $1.zip $1; 
+    else echo "Command not found!"; 
+  fi   
+}
+
+v(){
+  if [ ! -z $1 ]; 
+    then cd $1; nvim; 
+    else nvim $1; 
+  fi   
+
+}
+
+xl(){
+  if [ -f $1 ];
+    then pyexcel view $1;
+  fi
+}
+
+xlw(){
+  if [ -f $1 ];
+    then pyexcel view --in-browser --output-file-type sortable.html --sheet-index 0 $1
+  fi
+}
