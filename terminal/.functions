@@ -37,6 +37,10 @@ dsync(){
  rsync -av --exclude='*/.git' ~/.config/ ~/Projects/experimentallife/dotfiles/   
 }
 
+ksync(){
+ rsync -av ~/qmk_firmware/keyboards/crkbd/keymaps/vxr/ ~/Projects/experimentallife/qmk-crkdb-keymap/
+}
+
 vt(){
   v ~/.config/terminal/
 }
