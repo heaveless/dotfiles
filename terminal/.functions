@@ -3,7 +3,7 @@ q(){
 }
 
 rs(){
-  source ~/.bashrc && exit && $TERM
+  source ~/.bashrc
 }
 
 cps(){

@@ -118,10 +118,11 @@ for i, group in enumerate(groups):
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
-    layout.Max(),
+    layout.Columns(border_focus='#cc2f7a'),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=2, border_focus='#21e0b3'),
+    layout.Stack(num_stacks=3, border_focus='#21e0b3'),
+    layout.Max(),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
@@ -142,22 +143,24 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(
+                        borderwidth=0,
+                        block_highlight_text_color='21e0b3',
+                    ),
                 widget.WindowName(),
                 widget.Systray(),
-                widget.Cmus(),
-                widget.Net(),
-                widget.NetGraph(),
-                widget.Memory(),
-                widget.MemoryGraph(),
-                widget.CPU(),
-                widget.CPUGraph(),
-                widget.Clock(format='%Y-%m-%d %I:%M %p'),
-                widget.Battery(format='[ {percent:1.0%} ]'),
+                widget.Wlan(format='{essid}', disconnected_message='鈴'),
+                widget.Net(format='{down} ↓↑ {up}'),
+                widget.Memory(format=' {MemPercent}%'),
+                widget.CPU(format=' {load_percent}%'),
+                widget.Clock(format=' %d-%m %H:%M %p'),
+                widget.Battery(format=' {percent:1.0%}'),
             ],
             24,
+            background=(0, 0, 0, 0),
+            border_color=(0, 0, 0, 0),
         ),
     ),
 ]
