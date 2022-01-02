@@ -4,3 +4,6 @@
 
 [ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 
+source /usr/share/fzf/completion.zsh && 
+source /usr/share/fzf/key-bindings.zsh
+

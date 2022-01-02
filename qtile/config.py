@@ -153,6 +153,7 @@ screens = [
                 widget.Systray(),
                 widget.Wlan(format='{essid}', disconnected_message='鈴'),
                 widget.Net(format='{down} ↓↑ {up}'),
+                widget.Bluetooth(),
                 widget.Memory(format=' {MemPercent}%'),
                 widget.CPU(format=' {load_percent}%'),
                 widget.Clock(format=' %d-%m %H:%M %p'),
