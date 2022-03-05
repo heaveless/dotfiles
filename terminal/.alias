@@ -1,9 +1,0 @@
-alias ~sk='cd ~/Projects/skyairline/'
-alias ~ex='cd ~/Projects/experimentallife/'
-
-alias ls='nnn -e'
-alias nnn='nnn -e'
-
-alias video='mpv'
-alias img='sxiv'
-alias pdf='zathura'

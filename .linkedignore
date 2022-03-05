@@ -1,0 +1,5 @@
+deps.sh
+setup.sh
+.git/
+.gitignore
+README.md
