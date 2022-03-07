@@ -1,2 +1,4 @@
 export LANG=en_US.UTF-8
 export PATH=$PATH:/var/lib/snapd/snap/bin
+export PATH=$PATH:~/.local/bin
+

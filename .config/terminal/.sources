@@ -4,3 +4,6 @@ source /usr/share/nvm/init-nvm.sh
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
 source /usr/share/nvm/install-nvm-exec
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh

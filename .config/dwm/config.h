@@ -147,6 +147,17 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,           7)
 	TAGKEYS(                        XK_9,           8)
 	{ MODKEY|ShiftMask,             XK_q,           quit,                   {0} },
+
+        { 0,    XF86XK_AudioLowerVolume,   spawn,  SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
+        { 0,    XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+        { 0,    XF86XK_AudioMute,  spawn,  SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+        { 0|ShiftMask,    XF86XK_AudioLowerVolume,   spawn,  SHCMD("spfy down") },
+        { 0|ShiftMask,    XF86XK_AudioRaiseVolume,   spawn,  SHCMD("spfy up") },
+        { 0|ShiftMask,    XF86XK_AudioMute,  spawn,  SHCMD("spfy mute") },
+        { 0|ShiftMask,    XF86XK_AudioPlay,  spawn,  SHCMD("spfy play") }, 
+        { 0|ShiftMask,    XF86XK_AudioStop,  spawn,  SHCMD("spfy stop") }, 
+        { 0|ShiftMask,    XF86XK_AudioPrev,  spawn,  SHCMD("spfy prev") },
+        { 0|ShiftMask,    XF86XK_AudioNext,  spawn,  SHCMD("spfy next") },
 };
 
 /* button definitions */
