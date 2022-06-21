@@ -1,20 +1,2 @@
-# Configurations
----------------------
-- cmus
-- alacritty
-- dunst
-- git
-- mpv
-- neofetch
-- nnn
-- nvim
-- pulse audio
-- qtile
-- rofi
-- jabba
-- grive2
----------------------
-- nvchad
-- nnn
----------------------
-- arch-silence
+# dotfiles
+
