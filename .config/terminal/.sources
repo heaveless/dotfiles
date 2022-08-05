@@ -7,3 +7,6 @@ source /usr/share/nvm/install-nvm-exec
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+[[ -s "/home/dev/.gvm/scripts/gvm" ]] && source "/home/dev/.gvm/scripts/gvm"
+
