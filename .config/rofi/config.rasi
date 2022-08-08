@@ -1,43 +1,46 @@
 configuration {
-  modi:				"drun";
-  font:				"Inconsolata 9";
-  display-drun: 		"";
-  sidebar-mode: 		false;
-  hover-select:			true;
-  me-select-entry:		"";
-  me-accept-entry:              [MousePrimary];
+  modi:				                "drun";
+  font:				                "Inconsolata 8";
+  display-drun: 		          "";
+  sidebar-mode: 		          false;
+  hover-select:			          true;
+  me-select-entry:		        "";
+  me-accept-entry:            [MousePrimary];
 }
 
 @theme "/dev/null"
 
 * {
-  primary: #d70040;
   black: #000;
   white: #fff;
+  
+  primary: @black;
+  secondary: #d88f12;
+  background-0: #bc7c10;
 
   base-border-radius: 5px;
 
-  background-color: @black;
-  
-  window-bg: @black;
-  entry-bg-color: #ddd;
-  entry-text-color: @black;
-  entry-placeholder-color: @black;
-  inputbar-text-color: @black;
+  background-color: @background-0;
+
+  window-bg: @background;
+  entry-bg-color: @primary;
+  entry-text-color: @background-0;
+  entry-placeholder-color: @background-0;
+  inputbar-text-color: @primary;
   element-text-color: @primary;
-  element-bg-color: @black;
-  element-selected-text-color: @white;
-  element-selected-bg-color: @primary;
+  element-bg-color: @background-0;
+  element-selected-text-color: @primary;
+  element-selected-bg-color: @background-0;
 }
 
 window {
-  location: 			center;
+  location: 			              center;
 
-  width:			25%;
+  width:			                  25%;
   y-offset:                     0;
-  padding: 			5px;
+  padding: 			                2px;
 
-  background-color:		@window-bg;
+  background-color:		          @window-bg;
 }
 
 prompt { 
@@ -45,18 +48,19 @@ prompt {
 }
 
 entry {
-  placeholder:			"Search";
+  placeholder:			            "Search";
   expand:                       true;
   
-  padding:			15px;
+  padding:			                12px 15px;
 
   background-color:             @entry-bg-color;
-  text-color:			@entry-text-color;
+  text-color:			              @entry-text-color;
   placeholder-color:            @entry-placeholder-color;
 }
 
 inputbar {
-  children: 			[ prompt, entry ];
+  children: 			              [ prompt, entry ];
+
   border-radius:                @base-border-radius;
 
   text-color:                   @inputbar-text-color;
@@ -64,7 +68,7 @@ inputbar {
 
 listview {
   columns:                      1;
-  lines:	                5;
+  lines:	                      5;
   cycle:                        false;
   dynamic:                      true;
   layout:                       vertical;
@@ -72,24 +76,26 @@ listview {
 
 mainbox {
   children:                     [ inputbar, listview ];
-  spacing:                      20px;
-  padding:                      15px 20px;
+  spacing:                      10px;
+  padding:                      10px 15px;
 }
 
 element {
-  padding:                      15px 0;
+  padding:                      2px 0;
 }
 
 element-text {
   expand:                       true;
-  margin:                       2.5px 50px;
+  margin:                       10px 15px;
   
   background-color:             @element-bg-color;
   text-color:                   @element-text-color;
 }
 
 element selected {
-  border-radius:                @base-border-radius;
+  /* border:                       1px; */
+  /* border-radius:                @base-border-radius; */
+  /* border-color:                 @primary; */
 
   background-color:             @element-selected-bg-color;
 }
