@@ -6,8 +6,6 @@
 ./setup.sh
 ```
 
----
-
 ## Configuration
 
 ### i3
