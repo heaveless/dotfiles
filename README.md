@@ -8,14 +8,16 @@
 
 ---
 
-## i3
-### Colors
+## Configuration
+
+### i3
+#### Colors
 
 - ![](https://img.shields.io/static/v1?label=&message=000000&color=000000) `primary`
 - ![](https://img.shields.io/static/v1?label=&message=D88F12&color=D88F12) `secondary`
 
-## kitty
-### Colors
+### kitty
+#### Colors
 
 - ![](https://img.shields.io/static/v1?label=&message=E5E1CF&color=E5E1CF) `foreground`
 - ![](https://img.shields.io/static/v1?label=&message=0B0E14&color=0B0E14) `background`
