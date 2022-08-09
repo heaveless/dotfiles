@@ -1,5 +1,13 @@
 # dotfiles
 
+## Install
+
+```sh
+./setup.sh
+```
+
+---
+
 ## i3
 ### Colors
 

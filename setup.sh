@@ -1,30 +1,45 @@
 #!/bin/bash
 
-base_files=`ls -a`
-config_folders=`ls ./.config`
+config_files=`find . -maxdepth 1 -type f`
+config_folders=`find ./.config/ -mindepth 1 -maxdepth 1 -type d`
+config_direction=`realpath ~/`
 
-ignord=`cat .linkedignore`
+# linked config files
 
-# linked base files
-
-if ! grep -q deps.sh ./.linkedignore; then
-  echo "find me"
-fi
-
-echo ":tad: linked base files"
-
-for entry in $base_files 
+for entry in $config_files 
 do
-  echo "$entry"
-done
+  match=false
+
+  while read line;
+  do
+    if [ -z $line ]; 
+    then
+      break
+    fi
+
+    if [ $line -ef $entry ];
+    then
+      match=true
+      break
+    fi
+  done < .linkedignore
+
+  if ! [[ $match == true ]];
+  then
+    echo "Linked $config_direction${entry:1}";
+
+    rm -f "$config_direction${entry:1}";
+    ln -s "$(realpath $entry)" "$config_direction";
+  fi
+ done
 
 # linked config folders
 
-echo ":tada: Linked folders"
-
 for entry in $config_folders
 do 
-  echo "$entry"
-done
+  echo "Linked $config_direction${entry:1}";
 
+  rm -rf "$config_direction${entry:1}";
+  ln -s "$(realpath $entry)" "$config_direction/.config/";
+done
 

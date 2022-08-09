@@ -1,5 +1,6 @@
-deps.sh
-setup.sh
-.git/
 .gitignore
+.linkedignore
+deps.sh
 README.md
+setup.sh
+
