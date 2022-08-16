@@ -3,4 +3,6 @@
 deps.sh
 README.md
 setup.sh
-
+linker.sh
+winlinker.sh
+winvars
