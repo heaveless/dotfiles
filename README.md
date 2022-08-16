@@ -10,6 +10,18 @@ git clone -b wsl https://github.com/experimentallife/dotfiles ~/.config/experime
 cd ~/.config/experimentallife && ./setup.sh
 ```
 
+## Configuration
+
+### VSCode
+
+- font-family: **CaskaydiaCove NF**
+- font-size: 12
+
+### Terminal
+
+- font-family: **CaskaydiaCove NF**
+- font-size: 10
+
 ## Troubleshooting
 
 **Neovim**
