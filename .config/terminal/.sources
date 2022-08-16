@@ -1,12 +1,13 @@
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+export FZF_DIR="$HOME/.fzf"
+if [[ ! "$PATH" == *$FZF_DIR/bin* ]]; then
+  PATH="${PATH:+${PATH}:}$FZF_DIR/bin"
+fi
+[[ $- == *i* ]] && source "$FZF_DIR/shell/completion.zsh" 2> /dev/null
+[ -s "$FZF_DIR/shell/key-bindings.zsh" ] && source "$FZF_DIR/shell/key-bindings.zsh"
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-
-[[ -s "/home/dev/.gvm/scripts/gvm" ]] && source "/home/dev/.gvm/scripts/gvm"
-
+export GVM_DIR="$HOME/.gvm"
+[[ -s "$GVM_DIR/scripts/gvm" ]] && source "$GVM_DIR/scripts/gvm"
