@@ -3,7 +3,11 @@
 ## Install
 
 ```sh
-./setup.sh
+git clone -b wsl https://github.com/experimentallife/dotfiles ~/.config/experimentallife --depth 1
+```
+
+```sh
+cd ~/.config/experimentallife && ./setup.sh
 ```
 
 ## Configuration
