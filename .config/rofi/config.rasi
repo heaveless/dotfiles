@@ -14,9 +14,9 @@ configuration {
   black: #000;
   white: #fff;
   
-  primary: @black;
-  secondary: #d88f12;
-  background-0: #bc7c10;
+  primary: @white;
+  secondary: @black;
+  background-0: @black;
 
   base-border-radius: 5px;
 

@@ -16,7 +16,7 @@ for_window [class=".*"] title_format "  %title"
 
 gaps inner 15
 
-exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/wallpaper3.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/.config/feh/wallpaper2.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id dex --autostart --environment i3
