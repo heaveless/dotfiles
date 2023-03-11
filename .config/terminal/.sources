@@ -1,12 +1,13 @@
-source /usr/share/nvm/init-nvm.sh
+# ---------------- NVM ----------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+# ---------------- FZF ----------------
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 
-[[ -s "/home/dev/.gvm/scripts/gvm" ]] && source "/home/dev/.gvm/scripts/gvm"
-
+# --------------- PYENV ---------------
+export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_SHELL=zsh
+export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$PYENV_ROOT/shims:$PATH

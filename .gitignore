@@ -1,41 +1,6 @@
 **/__pycache__/
 **/.github/
 
+**/**/.zcompdump*
+
 **/LICENSE
-
-Android\ Open\ Source\ Project/
-autostart/
-cmus/
-Code\ -\ OSS/
-code-oss/
-configstore/
-dconf/
-discord/
-duckly/
-Electron/
-gatsby/
-git/
-Google/
-google-chrome/
-gtk-3.0/
-ibus/
-klavaro/
-menus/
-Microsoft/
-Microsoft\ Teams\ -\ Preview/
-MongoDB\ Compass/
-mpv/
-noisetorch/
-Postman/
-pulse/
-QtProject/
-rofi/
-Slack/
-systemd/
-teams/
-Unknown\ Organization/
-yarn/
-yay/
-
-zoomus.conf
-

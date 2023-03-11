@@ -1,5 +1,5 @@
 [global]    
-  monitor = 1
+  monitor = 0
 
   origin = "top-right"
   offset = "15x15"
@@ -10,6 +10,6 @@
 
   frame_width = 0
 
-  foreground = "#000000"
-  background = "#bc7c10"
+  foreground = "#ffffff"
+  background = "#000000"
 
