@@ -1,8 +1,0 @@
-source ~/.config/terminal/.defaults
-source ~/.config/terminal/.exports
-source ~/.config/terminal/.scripts
-source ~/.config/terminal/.alias
-source ~/.config/terminal/.sources
-source ~/.config/terminal/.functions
-source ~/.config/terminal/.keyboards
-
