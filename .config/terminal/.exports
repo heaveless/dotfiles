@@ -1,8 +1,0 @@
-export LANG=en_US.UTF-8
-export PROJECTS="$HOME/Projects"
-
-export PATH=$PATH:/var/lib/snapd/snap/bin
-export PATH=$PATH:~/.local/bin
-
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH=$PATH:/home/dev/.spicetify
