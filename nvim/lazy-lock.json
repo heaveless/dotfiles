@@ -1,0 +1,7 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
+  "neovim-ayu": { "branch": "master", "commit": "2839c88cd297a069e93df1aab542c087e8f6e8c0" },
+  "nvim-tree.lua": { "branch": "master", "commit": "f5f67892996b280ae78b1b0a2d07c4fa29ae0905" },
+  "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
+  "toggleterm.nvim": { "branch": "main", "commit": "48be57eaba817f038d61bbf64d2c597f578c0827" }
+}
