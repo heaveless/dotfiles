@@ -1,9 +1,0 @@
-[user]
-	email = me@heaveless.com
-	name = heaveless
-
-[credential]
-	helper = store
-
-[init]
-	defaultBranch = master
