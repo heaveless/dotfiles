@@ -1,11 +1,12 @@
 local M = {
 	"Shatur/neovim-ayu",
-	opts = function()
-		return {
-			mirage = false
-		}
-	end
 }
+
+M.opts = function()
+	return {
+		mirage = false
+	}
+end
 
 M.config = function(_, opts)
 	local theme = require("ayu")
