@@ -10,6 +10,17 @@ M.echo = function(str)
 	vim.api.nvim_echo({{ str, "Bold" }}, true, {})
 end
 
+M.check_package = function(pkg)
+	local check = vim.fn.system("command -v " .. pkg)
+	return check ~= ""
+end
+
+M.install_packages = function(args)
+	for _, command in ipairs(args) do
+		M.shell_call(command)
+	end
+end
+
 M.load_plugins = function()
 	local path = vim.fn.stdpath "config" .. "/lua/plugins"
 	local ref_str = vim.fn.glob(path .. "/*.lua")
