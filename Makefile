@@ -1,4 +1,4 @@
-DOTFILES := $(HOME)/dotfiles
+DOTFILES := $(shell pwd)
 
 .PHONY: install uninstall deps
 
