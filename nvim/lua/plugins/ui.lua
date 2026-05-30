@@ -57,9 +57,12 @@ return {
 				view_options = {
 					show_hidden = true,
 				},
+				keymaps = {
+					["-"] = false,
+				},
 			})
 			vim.keymap.set("n", "-", function()
-				vim.cmd("Oil " .. vim.fn.getcwd())
+				require("oil").open_float(vim.fn.getcwd())
 			end, { desc = "Open file explorer" })
 		end,
 	},
