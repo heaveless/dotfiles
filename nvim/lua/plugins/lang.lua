@@ -2,21 +2,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = "BufReadPost",
+		lazy = false,
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"lua",
-					"typescript",
-					"javascript",
-					"json",
-					"markdown",
-					"html",
-					"css",
-				},
-				highlight = { enable = true },
-				indent = { enable = true },
-			})
+			require("nvim-treesitter").setup()
 		end,
 	},
 	{
