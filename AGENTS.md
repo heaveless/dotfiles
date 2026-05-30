@@ -41,7 +41,7 @@ nvim/
     │   ├── options.lua       # vim.opt settings
     │   ├── keymaps.lua       # All keybindings
     │   └── autocmds.lua      # Yank highlight, startup banner
-    ├── theme.lua             # Custom minimal black/green theme
+    ├── theme.lua             # Rosé Pine theme
     └── plugins/
         ├── ui.lua            # nvim-tree, icons
         ├── editor.lua        # snacks, gitsigns, toggleterm
@@ -66,8 +66,8 @@ nvim/
 
 ### Theme
 
-Custom minimal theme in `lua/theme.lua`. Black background (`#000000`), green foreground (`#00ED8A`).
-Applied in `lua/config/init.lua` before lazy.nvim loads plugins.
+[Rosé Pine](https://github.com/rose-pine/neovim) dark variant (`main`).
+Applied in `plugins/ui.lua` via lazy.nvim.
 
 ### AI integration
 
