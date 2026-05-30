@@ -10,8 +10,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		vim.defer_fn(function()
-			print("Neovim | Lazy + AI | DeepSeek ready")
-			print(":MCPHub | :CodeCompanion | :DotAgent")
+			print("Neovim | OpenCode ready")
 		end, 1000)
 	end,
 })

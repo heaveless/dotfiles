@@ -44,9 +44,9 @@ nvim/
     ├── theme.lua             # Custom minimal black/green theme
     └── plugins/
         ├── ui.lua            # nvim-tree, icons
-        ├── editor.lua        # telescope, hop, gitsigns, toggleterm, snacks
+        ├── editor.lua        # snacks, gitsigns, toggleterm
         ├── lang.lua          # treesitter, mason, lspconfig, conform
-        └── ai.lua            # opencode, codecompanion (DeepSeek), dotagent, mcphub
+        └── ai.lua            # opencode.nvim
 ```
 
 ### Plugin categories
@@ -54,9 +54,9 @@ nvim/
 | File | Domain | Plugins |
 |------|--------|---------|
 | `ui.lua` | Interface | nvim-tree, nvim-web-devicons |
-| `editor.lua` | Editing | telescope (fzf-native), hop, gitsigns, toggleterm |
+| `editor.lua` | Editing | snacks (picker+words), gitsigns, toggleterm |
 | `lang.lua` | Languages | treesitter, mason, mason-lspconfig, nvim-lspconfig, conform |
-| `ai.lua` | AI/LLM | opencode, codecompanion (DeepSeek), dotagent, mcphub |
+| `ai.lua` | AI/LLM | opencode.nvim |
 
 ### Adding a plugin
 
@@ -74,19 +74,11 @@ Applied in `lua/config/init.lua` before lazy.nvim loads plugins.
 - **opencode.nvim**: Bridge to OpenCode CLI. Context injection, prompts, edit approval via diff.
   - Requires `opencode` running with `--port`
   - `<C-a>` Ask, `<C-x>` Select, `<C-.>` Toggle
-- **codecompanion.nvim**: Chat with DeepSeek (`deepseek-v4-pro`) via OpenAI-compatible adapter
-  - Requires `DEEPSEEK_API_KEY` env var
-- **dotagent.nvim**: Skills-based agent using skills from `~/.agents/skills/`
-  - Also requires `DEEPSEEK_API_KEY`
-- **mcphub.nvim**: MCP server manager, reads config from `~/.config/nvim/mcpservers.json`
 
 Important keymaps:
 - `<C-a>` — OpenCode ask
 - `<C-x>` — OpenCode select
 - `<C-.>` — OpenCode toggle
-- `<leader>a` — CodeCompanion chat
-- `<leader>s` — DotAgent
-- `<leader>mc` — MCP Hub
 
 ## Agents
 

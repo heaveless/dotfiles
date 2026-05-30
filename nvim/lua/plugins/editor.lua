@@ -1,39 +1,5 @@
 return {
 	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		},
-		cmd = "Telescope",
-		config = function()
-			require("telescope").setup({
-				defaults = {
-					file_ignore_patterns = { "node_modules", ".git", "dist", "build" },
-					vimgrep_arguments = {
-						"rg",
-						"--hidden",
-						"--no-heading",
-						"--with-filename",
-						"--line-number",
-						"--column",
-						"--smart-case",
-						"--trim",
-					},
-				},
-			})
-			require("telescope").load_extension("fzf")
-		end,
-	},
-	{
-		"phaazon/hop.nvim",
-		branch = "v2",
-		cmd = "HopWord",
-		config = function()
-			require("hop").setup()
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufReadPre",
 		config = function()
@@ -48,6 +14,13 @@ return {
 	},
 	{
 		"folke/snacks.nvim",
+		keys = {
+			{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
+			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
+			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help tags" },
+			{ "<leader>f", function() Snacks.words.jump() end, desc = "Jump word" },
+		},
 		opts = {
 			input = {},
 			picker = {
@@ -63,6 +36,14 @@ return {
 						},
 					},
 				},
+				layouts = {
+					default = {
+						layout = { preset = "dropdown" },
+					},
+				},
+			},
+			words = {
+				enabled = true,
 			},
 		},
 	},
