@@ -43,9 +43,9 @@ nvim/
     │   └── autocmds.lua      # Yank highlight, startup banner
     ├── theme.lua             # Rosé Pine theme
     └── plugins/
-        ├── ui.lua            # nvim-tree, icons
-        ├── editor.lua        # snacks, gitsigns, toggleterm
-        ├── lang.lua          # treesitter, mason, lspconfig, conform
+        ├── ui.lua            # rose-pine, lualine, bufferline, oil.nvim
+        ├── editor.lua        # snacks, gitsigns, toggleterm, Comment, mini.pairs
+        ├── lang.lua          # treesitter, mason, nvim-cmp + LuaSnip, lspconfig, conform
         └── ai.lua            # opencode.nvim
 ```
 
@@ -53,9 +53,9 @@ nvim/
 
 | File | Domain | Plugins |
 |------|--------|---------|
-| `ui.lua` | Interface | nvim-tree, nvim-web-devicons |
-| `editor.lua` | Editing | snacks (picker+words), gitsigns, toggleterm |
-| `lang.lua` | Languages | treesitter, mason, mason-lspconfig, nvim-lspconfig, conform |
+| `ui.lua` | Interface | rose-pine, lualine, bufferline, oil.nvim |
+| `editor.lua` | Editing | snacks (picker+words+notifier+dashboard+statuscolumn+which-key), gitsigns, toggleterm, Comment, mini.pairs |
+| `lang.lua` | Languages | treesitter, mason*, nvim-cmp + LuaSnip, lspconfig, conform |
 | `ai.lua` | AI/LLM | opencode.nvim |
 
 ### Adding a plugin
@@ -74,11 +74,6 @@ Applied in `plugins/ui.lua` via lazy.nvim.
 - **opencode.nvim**: Bridge to OpenCode CLI. Context injection, prompts, edit approval via diff.
   - Requires `opencode` running with `--port`
   - `<C-a>` Ask, `<C-x>` Select, `<C-.>` Toggle
-
-Important keymaps:
-- `<C-a>` — OpenCode ask
-- `<C-x>` — OpenCode select
-- `<C-.>` — OpenCode toggle
 
 ## Agents
 

@@ -13,6 +13,16 @@ return {
 		config = true,
 	},
 	{
+		"numToStr/Comment.nvim",
+		event = "VeryLazy",
+		config = true,
+	},
+	{
+		"echasnovski/mini.pairs",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
 		"folke/snacks.nvim",
 		keys = {
 			{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
@@ -20,6 +30,7 @@ return {
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help tags" },
 			{ "<leader>f", function() Snacks.words.jump() end, desc = "Jump word" },
+			{ "<leader>?", function() Snacks.which_key.show() end, desc = "Which key" },
 		},
 		opts = {
 			input = {},
@@ -36,15 +47,11 @@ return {
 						},
 					},
 				},
-				layouts = {
-					default = {
-						layout = { preset = "dropdown" },
-					},
-				},
 			},
-			words = {
-				enabled = true,
-			},
+			words = { enabled = true },
+			notifier = { enabled = true },
+			statuscolumn = { enabled = true },
+			dashboard = { enabled = true },
 		},
 	},
 }

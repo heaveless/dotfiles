@@ -23,6 +23,15 @@ return {
 		end,
 	},
 	{
+		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("lualine").setup({
+				options = { theme = "rose-pine" },
+			})
+		end,
+	},
+	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -40,19 +49,16 @@ return {
 		end,
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
+		"stevearc/oil.nvim",
+		cmd = "Oil",
+		keys = {
+			{ "-", "<cmd>Oil<CR>", desc = "Open file explorer" },
+		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 		config = function()
-			require("nvim-tree").setup({
-				renderer = {
-					root_folder_label = false,
-					highlight_git = true,
-					indent_markers = { enable = true },
-				},
-				view = {
-					side = "left",
-					width = 35,
+			require("oil").setup({
+				view_options = {
+					show_hidden = true,
 				},
 			})
 		end,
