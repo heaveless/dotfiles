@@ -30,7 +30,7 @@ return {
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help tags" },
 			{ "<leader>f", function() Snacks.words.jump() end, desc = "Jump word" },
-			{ "<leader>?", function() Snacks.which_key.show() end, desc = "Which key" },
+			{ "<leader>?", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
 		},
 		opts = {
 			input = {},
