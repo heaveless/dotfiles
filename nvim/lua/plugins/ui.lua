@@ -58,7 +58,9 @@ return {
 					show_hidden = true,
 				},
 			})
-			vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open file explorer" })
+			vim.keymap.set("n", "-", function()
+				vim.cmd("Oil " .. vim.fn.getcwd())
+			end, { desc = "Open file explorer" })
 		end,
 	},
 }
