@@ -28,7 +28,15 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = { theme = "rose-pine" },
-				disabled_filetypes = { "snacks_terminal", "oil", "NvimTree" },
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
+					lualine_c = { "filename" },
+					lualine_x = { "diagnostics" },
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
+				},
+				disabled_filetypes = { "snacks_terminal", "oil" },
 			})
 		end,
 	},
