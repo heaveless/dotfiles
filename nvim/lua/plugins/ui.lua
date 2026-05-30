@@ -68,6 +68,8 @@ return {
 				},
 				keymaps = {
 					["-"] = false,
+					["q"] = "actions.close",
+					["<Esc>"] = "actions.close",
 				},
 			})
 			vim.keymap.set("n", "-", function()
