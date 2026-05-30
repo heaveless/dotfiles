@@ -6,9 +6,48 @@ return {
 			{ "folke/snacks.nvim", optional = true },
 		},
 		config = function()
+			local cmd = "opencode --port"
+
 			vim.g.opencode_opts = {
 				server = {
 					url = "http://localhost:4096",
+					start = function()
+						require("snacks.terminal").open(cmd, {
+							win = {
+								position = "right",
+								width = 0.35,
+								height = 1,
+								border = "rounded",
+								title = " OpenCode ",
+								title_pos = "center",
+							},
+							on_open = function(term)
+								require("opencode.terminal").setup(term)
+							end,
+						})
+					end,
+					stop = function()
+						require("snacks.terminal")
+							.get(cmd, {
+								win = { position = "right" },
+							})
+							:close()
+					end,
+					toggle = function()
+						require("snacks.terminal").toggle(cmd, {
+							win = {
+								position = "right",
+								width = 0.35,
+								height = 1,
+								border = "rounded",
+								title = " OpenCode ",
+								title_pos = "center",
+							},
+							on_open = function(term)
+								require("opencode.terminal").setup(term)
+							end,
+						})
+					end,
 				},
 			}
 
