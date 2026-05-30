@@ -1,0 +1,12 @@
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = false
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.mouse = "a"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.termguicolors = true
+vim.opt.updatetime = 250
+vim.opt.signcolumn = "yes"

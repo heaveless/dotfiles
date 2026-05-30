@@ -1,0 +1,240 @@
+{
+  "version": 3,
+  "skills": {
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/shadcn/ui.git",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "skillFolderHash": "bf9e83da91320f445f2c27f65067009f344f757a",
+      "installedAt": "2026-03-20T03:37:42.205Z",
+      "updatedAt": "2026-03-20T03:37:42.205Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-03-20T03:37:49.949Z",
+      "updatedAt": "2026-03-20T03:37:49.949Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "69bf4a7eeeaa772290c1c5efd19da0865f903af8",
+      "installedAt": "2026-03-20T06:06:56.252Z",
+      "updatedAt": "2026-03-20T06:06:56.252Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "pluginName": "example-skills",
+      "installedAt": "2026-03-20T06:17:14.026Z",
+      "updatedAt": "2026-03-20T06:17:14.026Z"
+    },
+    "clerk": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk/SKILL.md",
+      "skillFolderHash": "968e24091f3840a2ec21e7c27f07a13bf5b1290b",
+      "pluginName": "core",
+      "installedAt": "2026-04-27T19:10:55.148Z",
+      "updatedAt": "2026-04-27T19:10:55.148Z"
+    },
+    "clerk-backend-api": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-backend-api/SKILL.md",
+      "skillFolderHash": "6d51a1f4b6e9fd2d168fc0d4d74816c2625c221b",
+      "pluginName": "core",
+      "installedAt": "2026-04-27T19:10:55.603Z",
+      "updatedAt": "2026-04-27T19:10:55.603Z"
+    },
+    "clerk-custom-ui": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-custom-ui/SKILL.md",
+      "skillFolderHash": "7e07aad9e9f4283098de90813ff1b025c18db040",
+      "pluginName": "core",
+      "installedAt": "2026-04-27T19:10:56.015Z",
+      "updatedAt": "2026-04-27T19:10:56.015Z"
+    },
+    "clerk-setup": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-setup/SKILL.md",
+      "skillFolderHash": "7f349d441a90f3a9ea1531b25c28c5f3b707bfd0",
+      "pluginName": "core",
+      "installedAt": "2026-04-27T19:10:56.445Z",
+      "updatedAt": "2026-04-27T19:10:56.445Z"
+    },
+    "clerk-orgs": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-orgs/SKILL.md",
+      "skillFolderHash": "84c0249461a62e437d8a783c2b5d418fabf8227f",
+      "pluginName": "features",
+      "installedAt": "2026-04-27T19:10:56.855Z",
+      "updatedAt": "2026-04-27T19:10:56.855Z"
+    },
+    "clerk-testing": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-testing/SKILL.md",
+      "skillFolderHash": "4cfcca153cd4b51512d8b11d92b99b47b073ce55",
+      "pluginName": "features",
+      "installedAt": "2026-04-27T19:10:57.232Z",
+      "updatedAt": "2026-04-27T19:10:57.232Z"
+    },
+    "clerk-webhooks": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-webhooks/SKILL.md",
+      "skillFolderHash": "567f23d862fee090e05e647bb235adcd934dfd75",
+      "pluginName": "features",
+      "installedAt": "2026-04-27T19:10:57.602Z",
+      "updatedAt": "2026-04-27T19:10:57.602Z"
+    },
+    "clerk-astro-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-astro-patterns/SKILL.md",
+      "skillFolderHash": "b014afff07608dd534e6590715c3239019e95b8f",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:57.983Z",
+      "updatedAt": "2026-04-27T19:10:57.983Z"
+    },
+    "clerk-chrome-extension-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-chrome-extension-patterns/SKILL.md",
+      "skillFolderHash": "db40aa3c46bf4cea297e036121df5609b5600a5a",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:58.451Z",
+      "updatedAt": "2026-04-27T19:10:58.451Z"
+    },
+    "clerk-expo-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-expo-patterns/SKILL.md",
+      "skillFolderHash": "edb77f3b1574597e74282c7ed63c16021fc3e5c4",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:58.821Z",
+      "updatedAt": "2026-04-27T19:10:58.821Z"
+    },
+    "clerk-nextjs-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-nextjs-patterns/SKILL.md",
+      "skillFolderHash": "84868d5e56feed42269dd4e3017a694074c6ade8",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:59.207Z",
+      "updatedAt": "2026-04-27T19:10:59.207Z"
+    },
+    "clerk-nuxt-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-nuxt-patterns/SKILL.md",
+      "skillFolderHash": "866e0b81ad17c587001535c967abd111bc6b5eb9",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:59.557Z",
+      "updatedAt": "2026-04-27T19:10:59.557Z"
+    },
+    "clerk-react-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-react-patterns/SKILL.md",
+      "skillFolderHash": "a4b6fce15ac8e48bc1c3aa6af9003e5231ab9a8d",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:10:59.924Z",
+      "updatedAt": "2026-04-27T19:10:59.924Z"
+    },
+    "clerk-react-router-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-react-router-patterns/SKILL.md",
+      "skillFolderHash": "77f0bf80f4abee8fc9f7f0c81e76a689970f3e71",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:11:00.353Z",
+      "updatedAt": "2026-04-27T19:11:00.353Z"
+    },
+    "clerk-tanstack-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-tanstack-patterns/SKILL.md",
+      "skillFolderHash": "69d29c3db975067d2b4eb3f4ae10ab28933e1c93",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:11:00.783Z",
+      "updatedAt": "2026-04-27T19:11:00.783Z"
+    },
+    "clerk-vue-patterns": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/frameworks/clerk-vue-patterns/SKILL.md",
+      "skillFolderHash": "5e7071f593658b70cf37d5a6505df21e14cfb05b",
+      "pluginName": "frameworks",
+      "installedAt": "2026-04-27T19:11:01.165Z",
+      "updatedAt": "2026-04-27T19:11:01.165Z"
+    },
+    "clerk-android": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/mobile/clerk-android/SKILL.md",
+      "skillFolderHash": "814e0c4ca915370d20a7ec3eba78bb7521bd61f0",
+      "pluginName": "mobile",
+      "installedAt": "2026-04-27T19:11:01.535Z",
+      "updatedAt": "2026-04-27T19:11:01.535Z"
+    },
+    "clerk-swift": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/mobile/clerk-swift/SKILL.md",
+      "skillFolderHash": "dcc86bf7a2b3c6e53d09e2b9d6732e5c0b9e4871",
+      "pluginName": "mobile",
+      "installedAt": "2026-04-27T19:11:01.940Z",
+      "updatedAt": "2026-04-27T19:11:01.940Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp",
+    "claude-code"
+  ]
+}
