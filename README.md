@@ -1,6 +1,19 @@
 # dotfiles
 
-Personal configuration managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal configuration managed with symlinks.
+
+## Structure
+
+Each top-level directory is a config package:
+
+```
+dotfiles/
+├── nvim/       → ~/.config/nvim/
+├── agents/     → ~/.agents/
+├── Brewfile    → Homebrew dependencies
+├── Makefile    → install/uninstall
+└── install.sh  → Bootstrap script
+```
 
 ## Install
 
@@ -8,17 +21,11 @@ Personal configuration managed with [GNU Stow](https://www.gnu.org/software/stow
 bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/install.sh)
 ```
 
-## Packages
-
-| Package | Target | Description |
-|---------|--------|-------------|
-| `nvim` | `~/.config/nvim/` | Neovim editor |
-| `agents` | `~/.agents/` | AI agent skills |
+This clones the repo, installs Homebrew + dependencies, and creates symlinks.
 
 ## Usage
 
 ```bash
-make stow      # Create all symlinks
-make unstow    # Remove all symlinks
-make restow    # Recreate all symlinks
+make install    # Install deps + create symlinks
+make uninstall  # Remove symlinks
 ```

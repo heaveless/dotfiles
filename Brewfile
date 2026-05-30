@@ -1,4 +1,3 @@
-brew "stow"
 brew "neovim"
 brew "ripgrep"
 brew "fd"
