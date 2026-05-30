@@ -28,6 +28,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = { theme = "rose-pine" },
+				disabled_filetypes = { "snacks_terminal", "oil", "NvimTree" },
 			})
 		end,
 	},
