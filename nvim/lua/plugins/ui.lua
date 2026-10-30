@@ -64,6 +64,18 @@ return {
 		config = function()
 			require("oil").setup({
 				skip_confirm_for_simple_edits = true,
+				-- experimental, but keeps the index in sync with oil edits
+				git = {
+					add = function()
+						return true
+					end,
+					mv = function()
+						return true
+					end,
+					rm = function()
+						return true
+					end,
+				},
 				view_options = {
 					show_hidden = true,
 				},
