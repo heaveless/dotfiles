@@ -85,11 +85,16 @@ Bridge to the [pi](https://pi.dev) coding agent (`kurochenko/pi.nvim`). Loads on
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>pt` | n, t | Toggle pi panel (right split, 40%) |
+| `<leader>pt` | n, t | Open the panel / focus it from the code / close it when already inside |
+| `<C-h>` | n, t | Back to the code, panel stays open (buffer + pi process kept) |
 | `<leader>pa` | n, v | Ask pi about code / selection |
 | `<leader>px` | n, v | Action picker (explain, review, fix, test, …) |
 | `<leader>pp` | n, v | Send context directly |
 | `<leader>pq` | n | Abort pi's current operation |
+
+`<leader>pt` replaces the plugin's default toggle (disabled via `keymaps.toggle = false`)
+so that it never closes the panel when you only wanted to refocus it. Plain
+`:wincmd p` / `<C-w>p` also works, since the panel is a regular split.
 
 Prompts support `@this`, `@buffer`, `@buffers`, `@visible`, `@diagnostics`,
 `@quickfix` and `@diff` placeholders. `:Pi toggle|ask|prompt|select|abort` also works.
