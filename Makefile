@@ -4,7 +4,7 @@ NVIM_LINK := $(HOME)/.config/nvim
 AGENTS_LINK := $(HOME)/.agents
 MOLTEN_VENV := $(HOME)/.local/share/nvim/molten-venv
 
-.PHONY: install uninstall deps venv
+.PHONY: install uninstall deps venv update sync
 
 deps:
 	@if ! command -v brew >/dev/null 2>&1; then \
@@ -42,3 +42,16 @@ uninstall:
 			echo "Skipped $$target (not a symlink; remove it manually)"; \
 		fi; \
 	done
+
+# Update an existing install: pull, relink/refresh deps, sync plugins
+update:
+	@echo "==> Pulling $(DOTFILES)"
+	@git -C $(DOTFILES) pull --ff-only
+	@$(MAKE) --no-print-directory install
+	@$(MAKE) --no-print-directory sync
+
+# Update lazy.nvim plugins (rewrites lazy-lock.json)
+sync:
+	@echo "==> Syncing nvim plugins"
+	@nvim --headless "+Lazy! sync" +qa
+	@echo "==> Done. Inside nvim: :TSUpdate for parsers, :Mason for LSP servers"

@@ -158,6 +158,9 @@ Dependencies installed via `brew bundle`:
 ## Maintenance
 
 ```bash
+# Update an existing install (pull + deps + venv + symlinks + plugin sync)
+make update
+
 # Update brew deps
 brew bundle --file Brewfile
 
@@ -166,4 +169,8 @@ make venv
 
 # Refresh lazy.nvim plugins (inside nvim)
 :Lazy sync
+
+# Update treesitter parsers / LSP servers (inside nvim)
+:TSUpdate
+:Mason
 ```
