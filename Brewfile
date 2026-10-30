@@ -1,5 +1,8 @@
 brew "neovim"
+brew "tree-sitter-cli"
 brew "ripgrep"
 brew "fd"
 brew "sqlite3"
 brew "imagemagick"
+brew "stylua"
+brew "prettierd"

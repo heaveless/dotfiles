@@ -11,7 +11,7 @@ dotfiles/
 ├── nvim/       → ~/.config/nvim/
 ├── agents/     → ~/.agents/
 ├── Brewfile    → Homebrew dependencies
-├── Makefile    → install/uninstall
+├── Makefile    → install/uninstall/venv
 └── install.sh  → Bootstrap script
 ```
 
@@ -26,6 +26,8 @@ This clones the repo, installs Homebrew + dependencies, and creates symlinks.
 ## Usage
 
 ```bash
-make install    # Install deps + create symlinks
-make uninstall  # Remove symlinks
+make install    # Install deps + python venv + create symlinks
+make uninstall  # Remove symlinks only
+make deps       # Homebrew packages only
+make venv       # Python venv for molten only
 ```
