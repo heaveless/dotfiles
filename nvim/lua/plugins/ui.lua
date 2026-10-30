@@ -36,7 +36,7 @@ return {
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
 				},
-				disabled_filetypes = { "snacks_terminal", "oil" },
+				disabled_filetypes = { "snacks_terminal" },
 			})
 		end,
 	},
@@ -55,39 +55,6 @@ return {
 					always_show_bufferline = true,
 				},
 			})
-		end,
-	},
-	{
-		"stevearc/oil.nvim",
-		lazy = false,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("oil").setup({
-				skip_confirm_for_simple_edits = true,
-				-- experimental, but keeps the index in sync with oil edits
-				git = {
-					add = function()
-						return true
-					end,
-					mv = function()
-						return true
-					end,
-					rm = function()
-						return true
-					end,
-				},
-				view_options = {
-					show_hidden = true,
-				},
-				keymaps = {
-					["-"] = false,
-					["q"] = "actions.close",
-					["<Esc>"] = "actions.close",
-				},
-			})
-			vim.keymap.set("n", "-", function()
-				require("oil").open_float(vim.fn.getcwd())
-			end, { desc = "Open file explorer" })
 		end,
 	},
 }

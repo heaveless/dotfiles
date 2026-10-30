@@ -21,6 +21,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		keys = {
+			{ "-", function() Snacks.explorer() end, desc = "File explorer" },
 			{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
 			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -31,6 +32,7 @@ return {
 		opts = {
 			input = {},
 			picker = {},
+			explorer = { enabled = true, replace_netrw = true, trash = true },
 			terminal = { enabled = true },
 			words = { enabled = true },
 			notifier = { enabled = true },

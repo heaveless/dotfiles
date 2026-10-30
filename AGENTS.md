@@ -42,8 +42,8 @@ nvim/
     │   ├── keymaps.lua       # All keybindings
     │   └── autocmds.lua      # Yank highlight
     └── plugins/
-        ├── ui.lua            # rose-pine, lualine, bufferline, oil.nvim
-        ├── editor.lua        # snacks, gitsigns, Comment, mini.pairs
+        ├── ui.lua            # rose-pine, lualine, bufferline
+        ├── editor.lua        # snacks (picker, explorer, terminal, …), gitsigns, Comment, mini.pairs
         ├── lang.lua          # treesitter, mason, nvim-cmp + LuaSnip, lspconfig, conform
         ├── data.lua          # molten-nvim, image.nvim, vim-table-mode
         └── ai.lua            # pi.nvim
@@ -53,8 +53,8 @@ nvim/
 
 | File | Domain | Plugins |
 |------|--------|---------|
-| `ui.lua` | Interface | rose-pine, lualine, bufferline, oil.nvim |
-| `editor.lua` | Editing | snacks (picker+words+notifier+dashboard+statuscolumn+terminal), gitsigns, Comment, mini.pairs |
+| `ui.lua` | Interface | rose-pine, lualine, bufferline |
+| `editor.lua` | Editing | snacks (picker+explorer+words+notifier+dashboard+statuscolumn+terminal), gitsigns, Comment, mini.pairs |
 | `lang.lua` | Languages | treesitter (parsers auto-installed), mason*, nvim-cmp + LuaSnip, lspconfig, conform |
 | `data.lua` | Data science | molten-nvim (lazy: markdown/python/quarto), image.nvim, vim-table-mode |
 | `ai.lua` | AI agent | pi.nvim (side panel over snacks.terminal) |
@@ -69,6 +69,20 @@ nvim/
 
 [Rosé Pine](https://github.com/rose-pine/neovim) dark variant (`main`).
 Applied in `plugins/ui.lua` via lazy.nvim.
+
+### File explorer
+
+Netrw is disabled; `snacks.explorer` (a picker in disguise) replaces it.
+
+- `-` opens the explorer at the `cwd`; `<Esc>` or `q` closes it
+- `<CR>` / `l` opens, `h` collapses a directory, `<BS>` goes up, `H` toggles hidden,
+  `I` toggles gitignored, `P` toggles preview
+- `a` add (directories end with `/`), `r` rename, `d` delete (system trash), `c` copy,
+  `m` move selected entries, `y` + `p` yank/paste paths across instances
+- Shows git status and diagnostics per entry (`]g`/`[g`, `]d`/`[d`)
+
+Note: file operations are plain filesystem ones — unlike oil, there is no automatic
+`git mv`/`git rm`/`git add`.
 
 ### Terminals
 
