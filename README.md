@@ -79,6 +79,28 @@ hooks:
   install: ./scripts/setup.sh   # runs on install, cwd = dot/mytool
 ```
 
+## Releases
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+`.github/workflows/release.yml` builds `dot` for macOS (arm64, x86_64) and Linux
+(x86_64, arm64) and publishes, for each target:
+
+```
+dot-v<version>-<target>.tar.gz
+dot-v<version>-<target>.tar.gz.sha256
+```
+
+The tag must match the version in `Cargo.toml`, otherwise the workflow fails
+before building. It can also be started manually from the Actions tab, passing
+the tag as input.
+
+`.github/workflows/ci.yml` runs `cargo fmt --check`, `cargo clippy -D warnings`
+and `cargo test` on every push to `master` and on pull requests.
+
 ## Updating
 
 `dot update` runs `git pull --ff-only` in the clone and rebuilds the binary. Since
