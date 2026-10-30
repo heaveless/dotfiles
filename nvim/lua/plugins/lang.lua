@@ -4,7 +4,40 @@ return {
 		build = ":TSUpdate",
 		lazy = false,
 		config = function()
-			require("nvim-treesitter").setup()
+			local ts = require("nvim-treesitter")
+			ts.setup()
+
+			local parsers = {
+				"bash",
+				"css",
+				"html",
+				"javascript",
+				"json",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"python",
+				"tsx",
+				"typescript",
+				"vim",
+				"vimdoc",
+				"yaml",
+			}
+
+			local installed = ts.get_installed()
+			local missing = vim.tbl_filter(function(p)
+				return not vim.tbl_contains(installed, p)
+			end, parsers)
+			if #missing > 0 then
+				ts.install(missing)
+			end
+
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("TreesitterStart", { clear = true }),
+				callback = function(ev)
+					pcall(vim.treesitter.start, ev.buf)
+				end,
+			})
 		end,
 	},
 	{
@@ -31,6 +64,8 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
@@ -51,6 +86,9 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+				}, {
+					{ name = "buffer" },
+					{ name = "path" },
 				}),
 			})
 		end,
