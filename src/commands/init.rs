@@ -35,7 +35,7 @@ pub fn run(paths: &Paths, spec: &str) -> Result<()> {
 
 fn resolve(paths: &Paths, spec: &str) -> Result<RepoRef> {
 	let candidate = paths.expand(spec);
-	if candidate.is_dir() {
+	if candidate.join("dot").is_dir() {
 		println!("{} using local checkout {}", info("→"), candidate.display());
 		return Ok(RepoRef {
 			url: spec.to_string(),

@@ -56,8 +56,8 @@ dot install --all
 dot init <repo>          # point at a git repo (or a local checkout)
 dot list                 # columns, docker-style: NAME STATE DESCRIPTION
 dot list -q              # names only
-dot install <dot>...     # link one or more dots
-dot install --all        # link every dot
+dot install <dot>...     # link one or more dots (pulls the repo first)
+dot install --all        # link every dot (pulls the repo first)
 dot uninstall <dot>...   # unlink
 dot uninstall --all      # unlink every dot
 dot update               # git pull the repo, rebuild and replace the binary

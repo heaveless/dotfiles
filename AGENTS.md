@@ -35,7 +35,7 @@ dotfiles/
 |---|---|
 | `dot init <repo>` | clones a git repo into `~/.local/share/dot/repo` (or adopts a local path) and stores it in sqlite |
 | `dot list` | docker-style columnar output (uppercase headers, no borders): name, state (`installed`/`not installed`/`foreign`/`conflict`), description. `-q` prints only names |
-| `dot install <dot>\|--all` | links, backs up a real directory in the way, runs `hooks.install`, records in sqlite |
+| `dot install <dot>\|--all` | pulls the repo first (so an installed dot is updated to the latest commit), then links, backs up a real directory in the way, runs `hooks.install`, records in sqlite. A failed pull is a warning, not an error |
 | `dot uninstall <dot>\|--all` | removes only links pointing into this repo, deletes the record |
 | `dot update` | `git pull --ff-only` + `cargo build --release` + replaces the running binary |
 

@@ -13,7 +13,7 @@ pub fn run(app: &App) -> Result<()> {
 			dim("·"),
 			app.repo.path.display()
 		),
-		Pull::Updated(head) => println!("{} repo at {head}", ok("✓")),
+		Pull::Updated { head, .. } => println!("{} repo at {head}", ok("✓")),
 	}
 
 	println!("{} cargo build --release", info("→"));
