@@ -45,7 +45,8 @@ nvim/
         ├── ui.lua            # rose-pine, lualine, bufferline, oil.nvim
         ├── editor.lua        # snacks, gitsigns, Comment, mini.pairs
         ├── lang.lua          # treesitter, mason, nvim-cmp + LuaSnip, lspconfig, conform
-        └── data.lua          # molten-nvim, image.nvim, vim-table-mode
+        ├── data.lua          # molten-nvim, image.nvim, vim-table-mode
+        └── ai.lua            # pi.nvim
 ```
 
 ### Plugin categories
@@ -56,6 +57,7 @@ nvim/
 | `editor.lua` | Editing | snacks (picker+words+notifier+dashboard+statuscolumn+terminal), gitsigns, Comment, mini.pairs |
 | `lang.lua` | Languages | treesitter (parsers auto-installed), mason*, nvim-cmp + LuaSnip, lspconfig, conform |
 | `data.lua` | Data science | molten-nvim (lazy: markdown/python/quarto), image.nvim, vim-table-mode |
+| `ai.lua` | AI agent | pi.nvim (side panel over snacks.terminal) |
 
 ### Adding a plugin
 
@@ -75,6 +77,22 @@ A single terminal implementation: `snacks.terminal` (already loaded by snacks).
 - `<Esc><Esc>` leaves terminal mode
 
 Terminal buffers use the `snacks_terminal` filetype and are excluded from lualine.
+
+### AI agent (pi.nvim)
+
+Bridge to the [pi](https://pi.dev) coding agent (`kurochenko/pi.nvim`). Loads on
+`VeryLazy`; `pi` must be in `PATH` (installed by pi's own installer, not the Brewfile).
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `<leader>pt` | n, t | Toggle pi panel (right split, 40%) |
+| `<leader>pa` | n, v | Ask pi about code / selection |
+| `<leader>px` | n, v | Action picker (explain, review, fix, test, …) |
+| `<leader>pp` | n, v | Send context directly |
+| `<leader>pq` | n | Abort pi's current operation |
+
+Prompts support `@this`, `@buffer`, `@buffers`, `@visible`, `@diagnostics`,
+`@quickfix` and `@diff` placeholders. `:Pi toggle|ask|prompt|select|abort` also works.
 
 ### Data science (molten)
 
