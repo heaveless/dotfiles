@@ -1,0 +1,3 @@
+description: Neovim (LazyVim, treesitter, molten, pi.nvim)
+hooks:
+  install: ./scripts/molten-venv.sh

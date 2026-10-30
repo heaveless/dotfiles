@@ -1,56 +1,93 @@
 # dotfiles
 
-Personal configuration managed with symlinks.
+Personal configuration managed by `dot`, a small dotfiles manager written in Rust.
 
-## Structure
-
-Each top-level directory is a config package:
+A **dot** is a folder in this repo. `dot/<name>/config/` is symlinked to
+`~/.config/<name>/`, and that is all `dot` does: it clones a repo, links dots,
+unlinks them, and updates itself.
 
 ```
-dotfiles/
-├── nvim/       → ~/.config/nvim/
-├── agents/     → ~/.agents/
-├── Brewfile    → Homebrew dependencies
-├── Makefile    → install/uninstall/venv
-└── install.sh  → Bootstrap script
+repo/
+├── dot/                     # one folder per dot
+│   └── nvim/
+│       ├── metadata.yml     # optional: description + install hook
+│       ├── config/          # → ~/.config/nvim
+│       └── scripts/
+└── src/                     # the `dot` crate
 ```
 
-## Install
+`dot` keeps everything it owns in `~/.local/share/dot`:
+
+```
+~/.local/share/dot/repo      # git clone of this repo
+~/.local/share/dot/dot.db    # sqlite: repo + install records
+~/.local/share/dot/backups/  # directories displaced by `dot install`
+```
+
+The only thing it writes outside of that is the symlink in `~/.config`.
+
+## Install / uninstall
 
 ```bash
+# system-wide (/usr/local/bin/dot, uses sudo when needed)
 bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/install.sh)
+
+# per user (~/.local/bin/dot, no sudo)
+PREFIX=$HOME/.local bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/install.sh)
+
+# uninstall: links + binary + ~/.local/share/dot
+bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/uninstall.sh)
+
+# keep db, clone and backups
+bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/uninstall.sh) --keep-data
 ```
 
-This clones the repo, installs Homebrew + dependencies, and creates symlinks.
-
-## Usage
+`install.sh` only installs the binary (building this checkout, or cloning the repo
+into a temp dir). Then:
 
 ```bash
-make install    # Install deps + python venv + create symlinks
-make update     # Pull the repo, refresh deps + symlinks, sync plugins
-make uninstall  # Remove symlinks only
-make deps       # Homebrew packages only
-make venv       # Python venv for molten only
-make sync       # lazy.nvim plugin sync only (rewrites lazy-lock.json)
+dot init <repo>
+dot install --all
 ```
 
-## Update
-
-Already cloned? One command:
+## Commands
 
 ```bash
-make update
+dot init <repo>          # point at a git repo (or a local checkout)
+dot list                 # columns, docker-style: NAME STATE DESCRIPTION
+dot list -q              # names only
+dot install <dot>...     # link one or more dots
+dot install --all        # link every dot
+dot uninstall <dot>...   # unlink
+dot uninstall --all      # unlink every dot
+dot update               # git pull the repo, rebuild and replace the binary
 ```
 
-or, for a fresh machine bootstrap plus update:
+## Adding a dot
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/heaveless/dotfiles/master/install.sh) update
+mkdir -p dot/mytool/config
+mv ~/.config/mytool/* dot/mytool/config/
+dot install mytool
 ```
 
-`make update` runs `git pull --ff-only`, then `make install` (idempotent: brew deps,
-molten venv, symlinks) and `make sync` (`nvim --headless "+Lazy! sync"`).
-It aborts if the checkout has diverged or uncommitted changes block the merge.
+`metadata.yml` is optional:
 
-The lockfile changes it produces are meant to be committed, so every machine
-ends up on the same plugin revisions.
+```yaml
+description: My tool
+hooks:
+  install: ./scripts/setup.sh   # runs on install, cwd = dot/mytool
+```
+
+## Updating
+
+`dot update` runs `git pull --ff-only` in the clone and rebuilds the binary. Since
+dots are symlinks into the clone, the pull already updates your configuration;
+there is no need to re-link after it.
+
+## Dev
+
+```bash
+cargo test
+cargo run -- list
+```
