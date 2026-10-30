@@ -2,6 +2,7 @@ return {
 	{
 		"3rd/image.nvim",
 		build = false,
+		lazy = true,
 		config = function()
 			require("image").setup({
 				backend = "kitty",
@@ -22,6 +23,7 @@ return {
 		"benlubas/molten-nvim",
 		dependencies = { "3rd/image.nvim" },
 		build = ":UpdateRemotePlugins",
+		ft = { "markdown", "python", "quarto" },
 		init = function()
 			vim.g.molten_image_provider = "image.nvim"
 			vim.g.molten_image_location = "both"
@@ -37,28 +39,28 @@ return {
 			vim.g.molten_cover_empty_lines = true
 		end,
 		config = function()
-			local function get_chunk_range()
-				local buf = vim.api.nvim_get_current_buf()
-				local ts = pcall(require, "vim.treesitter")
-				if ts then
-					local parser = vim.treesitter.get_parser(buf, "markdown")
-					if parser then
-						local tree = parser:parse()[1]
-						local root = tree:root()
-						local cursor = root:named_descendant_for_range(
-							vim.fn.line(".") - 1, 0,
-							vim.fn.line(".") - 1, 0
-						)
-						while cursor do
-							if cursor:type() == "fenced_code_block" then
-								local srow = cursor:start()
-								local erow = cursor:end_()
-								return srow + 2, erow - 1
-							end
-							cursor = cursor:parent()
-						end
-					end
+			local function parse_markdown()
+				-- get_parser returns nil + message when the parser is unavailable
+				local ok, parser = pcall(vim.treesitter.get_parser, 0, "markdown")
+				if not ok or not parser then
+					return nil
 				end
+				return parser:parse()[1]:root()
+			end
+
+			local function get_chunk_range()
+				local cursor_line = vim.fn.line(".") - 1
+				local root = parse_markdown()
+				local node = root and root:named_descendant_for_range(cursor_line, 0, cursor_line, 0)
+				while node do
+					if node:type() == "fenced_code_block" then
+						local srow = node:start()
+						local erow = node:end_()
+						return srow + 2, math.max(erow - 1, srow + 1)
+					end
+					node = node:parent()
+				end
+
 				local start = vim.fn.search("^```\\|^# %%\\|^\\%^", "bnW")
 				local finish = vim.fn.search("^```\\|^# %%\\|^\\%$", "nW")
 				return start == 0 and 1 or start, finish == 0 and vim.fn.line("$") or finish
@@ -93,20 +95,16 @@ return {
 					end
 				end
 				local buf = vim.api.nvim_get_current_buf()
-				local ts = pcall(require, "vim.treesitter")
 				local chunks = {}
-				if ts then
-					local parser = vim.treesitter.get_parser(buf, "markdown")
-					if parser then
-						local tree = parser:parse()[1]
-						local query = vim.treesitter.query.parse("markdown", "(fenced_code_block) @cb")
-						for _, node in query:iter_captures(tree:root(), buf, 0) do
-							local srow = node:start()
-							local erow = node:end_()
-							local first_line = vim.fn.getline(srow + 1)
-							if first_line and first_line:match("{python}") then
-								table.insert(chunks, { s = srow + 2, e = erow - 1 })
-							end
+				local root = parse_markdown()
+				if root then
+					local query = vim.treesitter.query.parse("markdown", "(fenced_code_block) @cb")
+					for _, node in query:iter_captures(root, buf, 0) do
+						local srow = node:start()
+						local erow = node:end_()
+						local first_line = vim.fn.getline(srow + 1)
+						if first_line and first_line:match("{python}") then
+							table.insert(chunks, { s = srow + 2, e = math.max(erow - 1, srow + 1) })
 						end
 					end
 				end
