@@ -1,39 +1,69 @@
 {
-	"version": 3,
-	"skills": {
-		"shadcn": {
-			"source": "shadcn/ui",
-			"sourceType": "github",
-			"sourceUrl": "https://github.com/shadcn/ui.git",
-			"skillPath": "skills/shadcn/SKILL.md",
-			"skillFolderHash": "bf9e83da91320f445f2c27f65067009f344f757a",
-			"installedAt": "2026-03-20T03:37:42.205Z",
-			"updatedAt": "2026-03-20T03:37:42.205Z"
-		},
-		"vercel-react-best-practices": {
-			"source": "vercel-labs/agent-skills",
-			"sourceType": "github",
-			"sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-			"skillPath": "skills/react-best-practices/SKILL.md",
-			"skillFolderHash": "69bf4a7eeeaa772290c1c5efd19da0865f903af8",
-			"installedAt": "2026-03-20T06:06:56.252Z",
-			"updatedAt": "2026-03-20T06:06:56.252Z"
-		},
-		"frontend-design": {
-			"source": "anthropics/skills",
-			"sourceType": "github",
-			"sourceUrl": "https://github.com/anthropics/skills.git",
-			"skillPath": "skills/frontend-design/SKILL.md",
-			"skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
-			"pluginName": "example-skills",
-			"installedAt": "2026-03-20T06:17:14.026Z",
-			"updatedAt": "2026-03-20T06:17:14.026Z"
-		}
-	},
-	"dismissed": {
-		"findSkillsPrompt": true
-	},
-	"lastSelectedAgents": [
-		"opencode"
-	]
+  "version": 3,
+  "skills": {
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/shadcn/ui.git",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "skillFolderHash": "bf9e83da91320f445f2c27f65067009f344f757a",
+      "installedAt": "2026-03-20T03:37:42.205Z",
+      "updatedAt": "2026-03-20T03:37:42.205Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "69bf4a7eeeaa772290c1c5efd19da0865f903af8",
+      "installedAt": "2026-03-20T06:06:56.252Z",
+      "updatedAt": "2026-03-20T06:06:56.252Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "pluginName": "example-skills",
+      "installedAt": "2026-03-20T06:17:14.026Z",
+      "updatedAt": "2026-03-20T06:17:14.026Z"
+    },
+    "orchestration": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orchestration/SKILL.md",
+      "skillFolderHash": "993c9e1861ad97047e34ab82e5dbd045e888a4a5",
+      "installedAt": "2026-06-05T07:31:25.907Z",
+      "updatedAt": "2026-06-05T07:31:25.907Z"
+    },
+    "orca-cli": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orca-cli/SKILL.md",
+      "skillFolderHash": "dc8ef30fef07f81167e948a9bfc90d14670ea10c",
+      "installedAt": "2026-06-05T08:18:31.792Z",
+      "updatedAt": "2026-06-05T08:18:31.792Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
 }
