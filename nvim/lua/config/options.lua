@@ -10,5 +10,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 250
 vim.opt.signcolumn = "yes"
+vim.opt.undofile = true
+vim.opt.scrolloff = 4
 vim.opt.autoread = true
 vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/molten-venv/bin/python3")
